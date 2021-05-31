@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       filled: true,
-                      hintStyle: new TextStyle(color: Colors.grey[800]),
+                      hintStyle: new TextStyle(color: Colors.grey[600]),
                       hintText: "Search Destination",
                       fillColor: Colors.grey.withOpacity(0.2)),
                 ),
