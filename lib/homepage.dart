@@ -3,6 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:japantravel/color.dart';
 
 class HomePage extends StatelessWidget {
+  var chipIcons = [
+    {
+      "title": "Tokyo",
+      "icon": Icons.airplanemode_on_sharp,
+      "color": Mycolor.skyblue
+    },
+    {
+      "title": "Singapur",
+      "icon": Icons.airplanemode_on_sharp,
+      "color": Mycolor.skyblue
+    },
+    {
+      "title": "Dhaka",
+      "icon": Icons.airplanemode_on_sharp,
+      "color": Mycolor.skyblue
+    },
+    {
+      "title": "London",
+      "icon": Icons.airplanemode_on_sharp,
+      "color": Mycolor.skyblue
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,30 +90,71 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                width: 120,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Mycolor.skyblue.withOpacity(0.3)),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical:12,horizontal: 14),
-                  child: Row(
-                    children: [
-                      Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Mycolor.skyblue),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Icon(Icons.airplanemode_active),
-                          )),
-                      Text('Tokyo'),
-                    ],
-                  ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: chipIcons
+                      .map((singleIcon) => ChipButton(
+                            icon: singleIcon['icon'],
+                            title: singleIcon['title'],
+                            color: singleIcon['color'],
+                          ))
+                      .toList(),
                 ),
-              ),
+              )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ChipButton extends StatelessWidget {
+  final title;
+  final icon;
+  final color;
+  const ChipButton({
+    Key? key,
+    required this.title,
+    required this.icon,
+    required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoButton(
+      pressedOpacity: 0.1,
+      onPressed: () {
+
+      },
+      padding: EdgeInsets.all(0),
+      child: Container(
+        margin: EdgeInsets.only(right: 16),
+        decoration: BoxDecoration(
+            color: this.color.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(50)),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: this.color,
+                ),
+                child: Icon(
+                  this.icon,
+                  color: Colors.white,
+                )),
+            Padding(
+              padding: const EdgeInsets.only(left: 5, right: 10),
+              child: Text(
+                this.title,
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 14),
+              ),
+            )
+          ],
         ),
       ),
     );
