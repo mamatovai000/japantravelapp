@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Mycolor.litewhite,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.only(left: 20),
           child: Column(
             children: [
               Container(
@@ -46,13 +46,16 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.notifications,
-                          size: 32,
-                          color: Mycolor.deepblue,
-                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: InkWell(
+                          onTap: () {},
+                          child: Icon(
+                            Icons.notifications,
+                            size: 32,
+                            color: Mycolor.deepblue,
+                          )),
+                    ),
                   ],
                 ),
               ),
