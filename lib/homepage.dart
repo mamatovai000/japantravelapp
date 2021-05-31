@@ -47,8 +47,8 @@ class HomePage extends StatelessWidget {
                                 color: Mycolor.deepblue),
                             child: InkWell(
                                 onTap: () {},
-                                child: Icon(Icons.search,
-                                    color: Colors.white))),
+                                child:
+                                    Icon(Icons.search, color: Colors.white))),
                       ),
                       border: new OutlineInputBorder(
                         borderRadius: const BorderRadius.all(
@@ -60,13 +60,35 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       filled: true,
-                      hintStyle: new TextStyle(color: Colors.grey[600]),
+                      hintStyle: new TextStyle(color: Colors.grey[800]),
                       hintText: "Search Destination",
                       fillColor: Colors.grey.withOpacity(0.2)),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+                width: 120,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Mycolor.skyblue.withOpacity(0.3)),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical:12,horizontal: 14),
+                  child: Row(
+                    children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Mycolor.skyblue),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Icon(Icons.airplanemode_active),
+                          )),
+                      Text('Tokyo'),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
